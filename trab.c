@@ -15,18 +15,18 @@ void excluiProduto();
 void consultaProduto();
 void listaProduto();
 
-
-
-
-
-
- typedef struct Produto {
+typedef struct Produto {
  	int codigo;
  	char descricao[51];
  	int qtdEstoque;
  	double preco;
  
- }produto;
+}produto;
+
+int main(){
+	mostraMenuPrincipal();
+	return 0;
+}
 
 void comandoInvalido(){
 	printf("\nCOMANDO INVALIDO! TENTE NOVAMENTE!\n"); 
@@ -38,11 +38,11 @@ void mostraMenuPrincipal(){
 	printf("\nSeja bem vindo ao APP\nDigite 1 seguido de ENTER para GERENCIAR PRODUTO.\nDigite 2 seguido de ENTER para REGISTRAR PEDIDO DE COMPRA\nDigite 3 seguido de ENTER para DESTRUIR A LOJA\n Digite seguido de ENTER 4 para encerrar a aplicacao.");
 	scanf("%d", &acao);
 	switch(acao){
-		case(1):mostraMenuProduto();break;
-		case(2):mostraMenuPedido();break;
+		case(1): mostraMenuProduto(); break;
+		case(2): mostraMenuPedido(); break;
 		
 		
-		default:comandoInvalido();return;
+		default: comandoInvalido(); return;
 	}
 }
 
@@ -57,10 +57,28 @@ void mostraMenuProduto(){
 		case(4):consultaProduto();
 		case(5):listaProduto();
 		case(6):mostraMenuPrincipal();
-		default:comandoInvalido;return;
+		default: comandoInvalido(); return;
 	}
 }
 
+void mostraMenuPedido(){
+	
+}
+void incluiProduto(){
+	
+}
+void alteraProduto(){
+	
+}
+void excluiProduto(){
+	
+}
+void consultaProduto(){
+	
+}
+void listaProduto(){
+	
+}
 
   
  /* 
@@ -89,10 +107,10 @@ void mostraMenuProduto(){
   printf("\n Codigo ...: %i\n" , produto.codigoProduto);
   printf("\n Preco ...: %f\n" , produto.precoProduto);
   printf("\n Quantidade no estoque ...: %i\n" , produto.qtd_estoque);
-//CORREÇOES A SEREM APLICADAS:
-//N estou conseguindo colocar numero decimal quando preencho o preço do produto.
-//Colocar regras de preenchimento ao decorrer da aplicação.
-//OBS: O grupo deverá propor uma quantidade inicial de alocação. Quando o estiver cheio, deverá ser proposta uma estratégia para aumentar o tamanho do vetor
+//CORRE?OES A SEREM APLICADAS:
+//N estou conseguindo colocar numero decimal quando preencho o pre?o do produto.
+//Colocar regras de preenchimento ao decorrer da aplica??o.
+//OBS: O grupo dever? propor uma quantidade inicial de aloca??o. Quando o estiver cheio, dever? ser proposta uma estrat?gia para aumentar o tamanho do vetor
   
 getch();
 return 0;  
