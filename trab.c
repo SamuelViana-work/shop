@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define PRINCIPAL 1;
-#define PRDUTO 2;
+#define PRINCIPAL 1
+#define PRDUTO 2
 #define PEDIDO 3
 
 void comandoInvalido();
 void mostraMenuPrincipal();
-//void mostraMenuPruduto();
+void mostraMenuProduto();
 void mostraMenuPedido();
 void incluiProduto();
 void alteraProduto();
@@ -38,11 +38,11 @@ void mostraMenuPrincipal(){
 	printf("\nSeja bem vindo ao APP\nDigite 1 seguido de ENTER para GERENCIAR PRODUTO.\nDigite 2 seguido de ENTER para REGISTRAR PEDIDO DE COMPRA\nDigite 3 seguido de ENTER para DESTRUIR A LOJA\n Digite seguido de ENTER 4 para encerrar a aplicacao.");
 	scanf("%d", &acao);
 	switch(acao){
-		case(1): mostraMenuProduto(); break;
-		case(2): mostraMenuPedido(); break;
+		case(1):mostraMenuProduto();break;
+		case(2):mostraMenuPedido();break;
 		
 		
-		default: comandoInvalido; return;
+		default:comandoInvalido();return;
 	}
 }
 
@@ -57,7 +57,7 @@ void mostraMenuProduto(){
 		case(4):consultaProduto();
 		case(5):listaProduto();
 		case(6):mostraMenuPrincipal();
-		default: comandoInvalido; return;
+		default:comandoInvalido;return;
 	}
 }
 
