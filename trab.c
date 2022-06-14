@@ -23,18 +23,69 @@ typedef struct Produto {
  
 }produto;
 
-typedef struct Node{
-	produto *prod; 
-	struct Node *next;
-}node;
+typedef struct Lista{
+	produto *prod;
+	int maxSize;
+	int size;
+}lista;
 
-void insert(produto *prod, node *last){
-	node *newNode = (node*)malloc(sizeof(node));	
-	last->next = newNode;
+lista *iniciaLista(int maxSize){
+	produto *prodAux = (produto*)malloc(sizeof(produto)*maxSize);
+	lista *listaAux = (lista*)malloc(sizeof(lista));
+	listaAux->prod = prodAux;
+	listaAux->size = 0;
+	listaAux->maxSize = maxSize;
+	return listaAux;
+}
+int vetor[10];
+
+produto *transfereProdutos(produto *prod, int size){
+	produto *auxProd = (produto*)malloc(sizeof(produto)*size*INCREASE)
+	for(int i=0; i<size; i++){
+		auxProd[i] = prod[i];
+	}
+	free(prod);
+	return auxProd;
+}
+
+void insere(produto *prod, lista *l){
+	produto *prodAux = l->prod;
+	if(l->maxSize == l->size){
+		l->maxSize*=INCREASE;
+		l->prod = transfereProdutos(l->prod, l->size);
+	}
+	prodAux[l->size++] = *prod;
+}
+
+int main(){
+	produto *prod = (produto*)malloc(sizeof(produto));
+	produto prod2;// = (produto*)malloc(sizeof(produto));
+	prod->codigo = 1;
+	prod->preco = 1.1;
+	prod->qtdEstoque = 1;
+	prod2 = *prod;
+	printf("%d, %lf, %d\n", prod2.codigo, prod2.preco, prod2.qtdEstoque);
+	return 0;
 }
 
 
+
+
 int main(){
+	list produtos;
+	init(&produtos);
+	for(int i=0; i<10; i++){
+		produto *prod = (produto*)malloc(sizeof(produto));
+		prod->codigo = i*100;
+		prod->preco = (i/2) + i;
+		prod->qtdEstoque = i;
+		insrert(prod, &produtos);
+		free(prod);
+	}
+	
+	for(int i=0; produtos.size; i++){
+		node *no = produtos.first;
+	}
 	mostraMenuPrincipal();
 	return 0;
 }
@@ -97,35 +148,5 @@ void listaProduto(){
 }
 
   
- /* 
-  
-//CORRE?OES A SEREM APLICADAS:
-//N estou conseguindo colocar numero decimal quando preencho o pre?o do produto.
-//Colocar regras de preenchimento ao decorrer da aplica??o.
-//OBS: O grupo dever? propor uma quantidade inicial de aloca??o. Quando o estiver cheio, dever? ser proposta uma estrat?gia para aumentar o tamanho do vetor
-  
-getch();
-return 0;  
-*void incluiProduto(){
-	printf("\n---------- CADASTRO DE PRODUTOS -----------\n\n\n");
-  
-	  printf("Nome do produto ......: ");
-	  scanf("%d", 51);
-	  
-	  printf("Informe o codigo do produto ..: ");
-	  scanf("%d", &produto.codigo);
-	  
-	  printf("Informe o preco do produto ..: ");
-	  scanf("%d", &produto.preco);
-	  
-	  printf("Informe a quantidade no estoque ..: ");
-	  scanf("%d", &produto.qtdEstoque);
-	  
-	  printf("\n\n --------- LENDO OS DADOS DO PRODUTO ---------\n\n");
-	  printf("\n Nome ...........: %s\n", produto.nomeProduto);
-	  printf("\n Descricao .....: %s\n", produto.descricaoProduto);
-	  printf("\n Codigo ...: %i\n" , produto.codigoProduto);
-	  printf("\n Preco ...: %f\n" , produto.precoProduto);
-	  printf("\n Quantidade no estoque ...: %i\n" , produto.qtdEstoque);
-*/
+
 
